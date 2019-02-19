@@ -14,6 +14,19 @@ data Command = Rgt -- >
   | Wrt   -- .
     deriving (Eq, Show)
 
+displayBf :: Program -> String
+displayBf = map toBrainfuck
+  where 
+    toBrainfuck c = case c of
+      Rgt -> '>'
+      Lft -> '<'
+      Inc -> '+'
+      Dec -> '-'
+      Jmp -> '['
+      End -> ']'
+      Rd  -> ','
+      Wrt -> '.'
+
 -- Type Alias for a Brainfuck program
 type Program = [Command]
 
